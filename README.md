@@ -2,7 +2,7 @@
 
 This project builds an end-to-end data science pipeline to analyze and predict college sailing race performance using real regatta data scraped from College Sailing Scores.
 
-The goal is to understand how sailor experience, team context, venue history, and race structure influence finishing positions, and to use those signals to train an interpretable machine learning model.
+The goal of this project is to better understand the factors that drive sailing performance—such as experience, team context, venue history, and race structure—and to use those insights to train an interpretable machine learning model. I was drawn to this problem because sailing outcomes depend heavily on context, which makes it an interesting challenge for machine learning rather than traditional ranking-based approaches.
 
 ## Project Overview
 
@@ -37,8 +37,3 @@ This notebook engineers features capturing sailor experience, team and partner c
 ## Tools & Technologies
 
 Python, Pandas, NumPy, BeautifulSoup, Plotly, scikit-learn
-
-## Author
-
-Charlie Youtt  
-Data Science & Finance

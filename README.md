@@ -1,37 +1,60 @@
-# Sailing Race Prediction & Performance Analysis
+# Sailing Race Performance Prediction
 
-This project builds an end-to-end data science pipeline to analyze and predict college sailing race performance using real regatta data. I was particularly interested in this problem because sailing outcomes are highly context-dependent, making it a strong candidate for machine learning rather than traditional ranking-based approaches.
+## Overview
+I built this project to analyze and predict college sailing race performance using real regatta data scraped from College Sailing Scores. I was drawn to this problem because sailing outcomes depend heavily on context rather than simple rankings or win–loss records, which makes it a natural challenge for data-driven modeling.
 
-## Project Overview
+The focus of this project is building an **end-to-end data science pipeline** that captures that complexity and translates it into an interpretable machine learning model, rather than forcing a single deterministic prediction.
 
-The project is organized into three main stages:
-1. Data Collection – Scrape and consolidate race-level results across multiple seasons
-2. Exploratory Analysis – Analyze performance patterns by sailor, team, and venue
-3. Modeling – Train a Random Forest model to predict race outcomes
+## What This Does
+Given historical regatta data, the system:
 
-Each stage is implemented in a separate notebook to keep the pipeline modular and reproducible.
+- **Scrapes and consolidates race-level sailing results**
+- **Performs exploratory analysis across sailors, teams, and venues**
+- **Engineers contextual performance features**
+- **Trains a Random Forest regression model to predict finish position**
+- **Evaluates model performance on held-out race data**
 
-## Repository Structure
+Rather than aiming for perfect predictions, the goal is to understand which factors consistently influence performance and how much signal exists in historical results.
 
-sailing-race-prediction/
-- Scraping.ipynb
-- Graphing.ipynb
-- RandomForestModel.ipynb
-- races.csv
-- README.md
+## How It’s Built
+The project is organized into three core components:
 
-## Data Collection (Scraping.ipynb)
+- **`Scraping.ipynb`** — collects and cleans historical regatta data from College Sailing Scores  
+- **`Graphing.ipynb`** — performs exploratory analysis and visualizes feature relationships, prediction errors, and model behavior  
+- **`RandomForestModel.ipynb`** — handles feature engineering, model training, and evaluation using a Random Forest regression model  
 
-This notebook scrapes regatta results across multiple seasons and parses race tables, sailor roles (skipper and crew), partners, divisions, venues, and scores. It handles real-world edge cases such as regattas with no posted scores, missing skipper or crew entries, and combined versus separated scoring formats. The output is a single consolidated dataset (races.csv) used throughout the project.
+Together, these notebooks form a modular and reproducible pipeline from raw data to evaluated predictions.
 
-## Exploratory Analysis (Graphing.ipynb)
+## Technical Concepts
+This project touches a mix of data science and machine learning concepts, including:
 
-This notebook computes performance metrics including average finish position, normalized ratio scores, and regatta participation counts. It analyzes performance by sailor, team, and venue and uses interactive visualizations to explore team-level distributions, venue-specific trends, and experience versus performance relationships. The goal is to identify meaningful signals for modeling.
+- **Web scraping and data cleaning**
+- **Feature engineering and aggregation**
+- **Exploratory data analysis**
+- **Supervised learning with Random Forests**
+- **Regression model evaluation (MSE, R², MAE)**
+- **Model interpretation and error analysis**
+- **Modular, notebook-based pipeline design**
 
-## Modeling (RandomForestModel.ipynb)
+## Results & Interpretation
+Model performance reflects both meaningful structure in the data and the inherent variability of sailing outcomes:
 
-This notebook engineers features capturing sailor experience, team and partner context, and venue history. High-cardinality categorical variables are handled using aggregated statistics rather than one-hot encoding. A Random Forest regression model is trained to predict race finish outcomes, and feature importance is evaluated to understand which factors drive performance. The modeling approach prioritizes robustness and interpretability.
+- Holdout performance: **MSE ≈ 13.47**, **R² ≈ 0.43**
+- Average race-level error: **~1.6–2.3 finish positions**
+- Most influential features:
+  - Historical average finish
+  - Partner aggregate performance
+  - Venue aggregate performance
 
-## Tools & Technologies
+Accuracy is naturally limited by unobserved race-day factors such as wind, weather, and fleet dynamics, which are not captured in the dataset.
 
-Python, Pandas, NumPy, BeautifulSoup, Plotly, scikit-learn
+## Potential Improvements
+There are several clear paths to improving the model:
+
+- Incorporate weather and wind conditions at race time  
+- Include fleet size and event competitiveness metrics  
+- Add richer sailor experience indicators (years racing, program strength)  
+
+Sailing outcomes are inherently noisy, but adding more contextual features would likely improve generalization and robustness.
+
+*For full analysis and experimentation, the notebooks can be run locally.*

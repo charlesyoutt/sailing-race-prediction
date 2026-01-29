@@ -12,7 +12,7 @@ Given historical regatta data, the system:
 - **Performs exploratory analysis across sailors, teams, and venues**
 - **Engineers contextual performance features**
 - **Trains a Random Forest regression model to predict finish position**
-- **Evaluates model performance on held-out race data**
+- **Evaluates model performance on held out race data**
 
 Rather than aiming for perfect predictions, the goal is to understand which factors consistently influence performance and how much signal exists in historical results.
 
@@ -20,8 +20,8 @@ Rather than aiming for perfect predictions, the goal is to understand which fact
 The project is organized into three core components:
 
 - **`Scraping.ipynb`** — collects and cleans historical regatta data from College Sailing Scores  
-- **`Graphing.ipynb`** — performs exploratory analysis and visualizes feature relationships, prediction errors, and model behavior  
-- **`RandomForestModel.ipynb`** — handles feature engineering, model training, and evaluation using a Random Forest regression model  
+- **`Graphing.ipynb`** — performs exploratory data analysis and visualizes feature distributions and relationships across sailors, teams, and venues
+- **`RandomForestModel.ipynb`** — handles feature engineering, model training, and evaluation, including analysis of prediction errors and model performance 
 
 Together, these notebooks form a modular and reproducible pipeline from raw data to evaluated predictions.
 

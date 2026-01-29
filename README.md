@@ -34,7 +34,6 @@ This project touches a mix of data science and machine learning concepts, includ
 - **Supervised learning with Random Forests**
 - **Regression model evaluation (MSE, R², MAE)**
 - **Model interpretation and error analysis**
-- **Modular, notebook-based pipeline design**
 
 ## Results & Interpretation
 Model performance reflects both meaningful structure in the data and the inherent variability of sailing outcomes:
